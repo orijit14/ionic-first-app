@@ -21,7 +21,10 @@ import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
 /* Theme variables */
+import './theme/global.css';
 import './theme/variables.css';
+import Loading from './pages/Loading';
+import Home from './pages/Home';
 
 setupIonicReact();
 
@@ -33,10 +36,17 @@ const App: React.FC = () => {
           <Menu />
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/page/Inbox" />
+              {/* <Redirect to="/loading" /> */}
+              <Loading />
             </Route>
             <Route path="/page/:name" exact={true}>
               <Page />
+            </Route>
+            <Route path="/loading" exact={true}>
+              <Loading />
+            </Route>
+            <Route path="/home" exact={true}>
+              <Home />
             </Route>
           </IonRouterOutlet>
         </IonSplitPane>
