@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { IonButtons, IonContent, IonHeader, IonMenuButton, useIonRouter, IonText, IonPage, IonTitle, IonToolbar, IonItem, IonLabel, IonSpinner } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, useIonRouter, IonImg, IonText, IonPage, IonTitle, IonToolbar, IonItem, IonLabel, IonSpinner } from '@ionic/react';
 import { useParams } from 'react-router';
+import { Link } from "react-router-dom";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import axios from 'axios';
@@ -14,6 +15,12 @@ import 'swiper/css/scrollbar';
 const Home = () => {
 
   const [banners, setBanners] = useState([]);
+  const [cat1, setCat1]       = useState([]);
+  const [cat2, setCat2]       = useState([]);
+  const [cat3, setCat3]       = useState([]);
+  const [cat4, setCat4]       = useState([]);
+  const [cat5, setCat5]       = useState([]);
+  const [cat6, setCat6]       = useState([]);
 
   //const { name } = useParams<{ name: string; }>();
   var settings = {
@@ -31,7 +38,12 @@ const Home = () => {
         .then(async (res) => {
            if(res.status === 200){
              // console.log(res.data.data.banners.image_1);
-              
+              setCat1(res.data.data.category_id_1);
+              setCat2(res.data.data.category_id_2);
+              setCat3(res.data.data.category_id_3);
+              setCat4(res.data.data.category_id_4);
+              setCat5(res.data.data.category_id_5);
+              setCat6(res.data.data.category_id_6);
               setBanners(res.data.data.banners);
               
               //setBanners(res.data.data.banners);
@@ -94,11 +106,34 @@ const Home = () => {
         </Swiper>
         </div>
         <div>
+        
+      
+        </div>
+        <section className="topRatedMusic">
         <IonText color="secondary" className='ion-text-center'>
           <h1><strong>Top Rated Music</strong></h1>
         </IonText>
-      
-        </div>
+        <ion-card className="round-10">
+          <ion-card-content>
+          <Link to="page/blog" className="h-200"><IonImg src="http://localhost/zeryab/public/uploads/page/category/1655194343_1.webp" alt="The Wisconsin State Capitol building in Madison, WI at night"></IonImg>
+          <IonText color="secondary" className='catName'>
+            <h2>Dance Music</h2>
+          </IonText>
+          </Link>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card className="round-10">
+        <ion-card-content>
+        <Link to="page/blog" className="h-200"><IonImg src="http://localhost/zeryab/public/uploads/page/category/1655197993_4.webp" alt="The Wisconsin State Capitol building in Madison, WI at night"></IonImg>
+          <IonText color="secondary" className='catName'>
+            <h2>Dance Music</h2>
+          </IonText>
+        </Link>
+        </ion-card-content>
+      </ion-card>
+        </section>
+        
       </IonContent>
       <ion-footer>
       <ion-toolbar>

@@ -8,3 +8,20 @@
     align-items: center;
     height: 100%;
 }
+.topRatedMusic  a h2 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 17px;
+    position: absolute;
+    padding: 10px;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
+    transition: all ease-in-out .4s;
+}
+.round-10 {
+    border-radius: 10px;
+}
+.h-200 {
+    height: 200px;
+}
